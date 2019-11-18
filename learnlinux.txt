@@ -1,0 +1,12 @@
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+
+
+
+
+1、安装git
+2、创建版本库
+	$ mkdir learngit (learngit为仓库名)
+	$ cd learngit
+	$ pwd
+	
