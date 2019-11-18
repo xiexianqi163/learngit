@@ -25,4 +25,17 @@ Git is free software distributed under the GPL.
    
    
 7、查看状态
+	$ git status
+	
+8、查看修改内容
+	$ git diff
+   按Q可以退出diff
+   
+9、提交修改(和前面提交文件两步相同)
+    $ git add .  （. 代表add所有文件，也可以添加具体文件 git add readme.txt）
+	$ git commit -m "write anything"
+   
+   
+   
+	
    
