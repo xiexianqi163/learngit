@@ -1,12 +1,19 @@
-Git is a distributed version control system.
-Git is free software distributed under the GPL.
+
+石勘院
+地址：10.122.5.157
+
+CRT: C:\Users\Administrator\Desktop\SecureCRTSecureFX_HH_x64_7.0.0.326
+
+# systemctl restart resin.service (start/stop)  系统启动
+# cd /usr/smartwork/logs 
+# cat runtime.log   查看文件内容（后台日志）
 
 
+# ps -aux|grep resin 查看resin后台进程
+# kill -9 9694  杀死进程
+# ./start_debug.sh 系统启动（调试模式），按Ctrl+C结束
 
+搜索功能问题点：
+搜索首页点击搜索按钮只搜索本系统内容
+搜索次页点击搜索按钮只搜索第一个关键词
 
-1、安装git
-2、创建版本库
-	$ mkdir learngit (learngit为仓库名)
-	$ cd learngit
-	$ pwd
-	

@@ -35,7 +35,16 @@ Git is free software distributed under the GPL.
     $ git add .  （. 代表add所有文件，也可以添加具体文件 git add readme.txt）
 	$ git commit -m "write anything"
    
-   
-   
+10、版本回退
+	$ git log 显示提交日志
+	$ git reset --hard HEAD^ 回退到上一个版本
+	$ git reset --hard HEAD^^ 回退到上上个版本
+	$ git reset --hard HEAD~5 回退到上5个版本
+	$ git reset --hard 1094a  回退到指定版本（1094a 为版本ID/commit id前5位）
+	$ cat readme.txt  查看文件内容
+	
+	$ git reflog 记录你的每一次命令（每条记录前几位就是commit id）
+	
+
 	
    
