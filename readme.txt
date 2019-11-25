@@ -45,6 +45,40 @@ Git is free software distributed under the GPL.
 	
 	$ git reflog 记录你的每一次命令（每条记录前几位就是commit id）
 	
-
+11 工作区（working directory）
+	任意文件夹都可以是工作区
+12、版本库
+	工作区有一个目录.git，就是Git的版本库
+	
+	git add 添加文件到暂存区(stage)
+	git commit 提交更改(把暂存区stage的内容提交到当前分支)
+	Git会为我们自动创建第一个分支master
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
    
