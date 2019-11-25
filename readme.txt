@@ -54,10 +54,37 @@ Git is free software distributed under the GPL.
 	git commit 提交更改(把暂存区stage的内容提交到当前分支)
 	Git会为我们自动创建第一个分支master
 	
+13、git checkout -- readme.txt (撤销文件在工作区的修改)
+	让这个文件回到最近一次git commit或git add 时的状态
 	
+14、git reset HEAD readme.txt 可以把暂存区的修改撤销掉，重新放回工作区
+    这个命令之后可以执行13，此时工作区的修改也被撤销了
 	
+15、如果是提交了的文件想撤回，则用前面说的版本回退处理
+
+16、删除文件
+	rm test.txt
+	此时用git status 查看状态，系统会告诉你哪些文件被删除了
 	
+	（1）继续执行
+	git rm test.txt
+	git commit -m "remove test.txt"
+	文件成功被删除
 	
+	（2）如果不想删了，则执行
+	git checkout --test.txt (实质是用版本库里的版本替换工作区的版本)
+
+17、远程仓库
+	可以找一台电脑充当服务器角色，把它作为远程仓库
+	也可以注册一个GitHub账号，免费获得Git远程仓库
+	
+18、创建 SSH Key
+	 ssh-keygen -t rsa -C "xiexianqi2017@gmail.com"
+	 
+19、登陆github,找到Account settings--SSH Keys--add SSH Key
+	key 文本框里粘贴id_rsa.pub文件的内容
+	
+
 	
 	
 	
