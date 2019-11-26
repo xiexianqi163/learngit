@@ -82,9 +82,18 @@ Git is free software distributed under the GPL.
 	 ssh-keygen -t rsa -C "xiexianqi2017@gmail.com"
 	 
 19、登陆github,找到Account settings--SSH Keys--add SSH Key
-	key 文本框里粘贴id_rsa.pub文件的内容
+	key 文本框里粘贴id_rsa.pub文件的内容（添加公钥，公钥所有人才有权利提交代码到github）
 	
-
+20、在本地关联一个远程库
+	git remote add origin git@github.com:xiexianqi163/learngit.git
+	origin为远程库名称(一般默认这个名字，也可以自己改一名)
+	origin后面为ssh地址或https地址
+	
+21、关联后，第一次推送master分支的所有内容
+	git push -u origin master
+	
+22、以后推送可以不加 -u
+	git push origin master
 	
 	
 	
