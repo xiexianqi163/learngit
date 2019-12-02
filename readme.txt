@@ -81,7 +81,7 @@ Git is free software distributed under the GPL.
 18、创建 SSH Key
 	 ssh-keygen -t rsa -C "xiexianqi2017@gmail.com"
 	 
-19、登陆github,找到Account settings--SSH Keys--add SSH Key
+19、登陆github,找到Account settings-->SSH Keys-->add SSH Key
 	key 文本框里粘贴id_rsa.pub文件的内容（添加公钥，公钥所有人才有权利提交代码到github）
 	
 20、在本地关联一个远程库
@@ -186,7 +186,7 @@ Git is free software distributed under the GPL.
 	此时提示冲突，需要先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送：
 	git pull
 	git pull 也失败，原因是没有指定本地dev分支与远程origin/dev分支的链接
-	git branch --set-upstream-to=origin/<branch> dev
+	git branch --set-upstream-to=origin/dev dev
 	再pull
 	git pull
 	这回成功了，但是合并有冲突，需要手动解决，解决方法跟30一样
