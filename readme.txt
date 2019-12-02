@@ -166,7 +166,63 @@ Git is free software distributed under the GPL.
 	git branch -d feature-vulcan     删除分支
 	git branch -D feature-vulcan	   强制删除（未合并的分支删除时会提示未合并，可以使用强制删除）
 	
-37、
+37、当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，远程仓库的默认名称是origin
+	git remote 查看远程库信息
+	
+38、推送分支
+	git push origin master
+	如果要推送其他分支，比如dev
+	git push origin dev
+	
+39、clone远程库到本地，如果要在dev分支(远程有dev分支本地没有)上开发，就必须创建远程origin的dev分支到本地
+	git checkout -b dev origin/dev
+	修改，时不时地把dev分支push到远程
+	git add **.txt
+	git commit -m "**&*&*&"
+	git push origin dev
+	
+	碰巧小伙伴也对同样的文件作了修改，并试图推送
+	
+	此时提示冲突，需要先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送：
+	git pull
+	git pull 也失败，原因是没有指定本地dev分支与远程origin/dev分支的链接
+	git branch --set-upstream-to=origin/<branch> dev
+	再pull
+	git pull
+	这回成功了，但是合并有冲突，需要手动解决，解决方法跟30一样
+	解决后，提交，再push
+	git mommit -m ""    (这里不用先add?)
+	git push origin dev 
+	
+40、rebase 变基
+	
+41、创建标签
+	给版本打上标签
+	git checkout master  切换到需要打标签的分支上
+	git tag v1.0         创建一个新标签v1.0
+	git tag 查看所有标签
+	默认标签是打在最新提交的commit上的
+	如果要打在之前版本上，需要找到历史提交的commit id 
+	git tag v0.9 f52c633
+	
+	git show v0.9   查看标签信息
+	
+	git tag -a v0.1 -m "version 0.1 released" 1094adb     创建带有说明的标签（-a指定标签名，-m指定说明文字）
+
+42、操作标签 
+	git tag -d v0.1    如果标签打错可以删除标签
+	
+	git push origin v1.0    创建的标签只存储在本地，如果要推送某个标签到远程，可以push
+	
+	git push origin --tags   一次性推送合部未推送到远程的本地标签
+	
+	如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除
+	git tag -d v0.9
+	然后，从远程删除
+	git push origin :refs/tags/v0.9
+	
+	
+	
 	
 	
 	
