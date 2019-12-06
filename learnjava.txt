@@ -1,0 +1,162 @@
+1、简介
+	java ee > java se > java me
+	java se 是标准版，包含标准的jvm和标准库
+	java ee 是企业版，在java se的基础上加上了大量api和库，以方便开发web应用、数据库、消息服务等
+	
+	JRE:java runtime environment java运行环境 。就是运行java字节码的虚拟机 （JVM 虚拟机 + runtime library 运行库）
+	JDK:java development kit  java开发工具包。包含JRE，还提供了编译器调试器等，把java源码编译成java字节码，就需要JDK。 (compiler编译器,debugger调试器,JRE,etc.)
+	
+	JVM:Java Virtual Machine（Java虚拟机）
+	
+	JSR:Java Specification Request  java 规范请求
+	JCP:Java Community Process   java 社区进程
+	JSR是一系列的规范，从JVM的内存模型到Web程序接口，全部都标准化了。
+	JCP是负责审核JSR的组织。
+	
+	一个JSR规范发布时，为了让大家有个参考，还要同时发布一个“参考实现”和一个“兼容性测试套件”：
+	RI：Reference Implementation
+	TCK：Technology Compatibility Kit
+	
+2、安装JDK
+
+	配置JAVA_HOME （JDK安装目录）
+	配置PATH (JAVA_HOME的bin目录)
+
+3、在JAVA_HOME的bin目录下找到很多可执行文件：
+
+	java：这个可执行程序其实就是JVM，运行Java程序，就是启动JVM，然后让JVM执行指定的编译后的代码；
+	javac：这是Java的编译器，它用于把Java源码文件（以.java后缀结尾）编译为Java字节码文件（以.class后缀结尾）；
+	jar：用于把一组.class文件打包成一个.jar文件，便于发布；
+	javadoc：用于从Java源码中自动提取注释并生成文档；
+	jdb：Java调试器，用于开发阶段的运行调试。
+
+4、基本数据类型
+
+	整数类型：byte，short，int，long
+	浮点数类型：float，double
+	字符类型：char
+	布尔类型：boolean
+	
+	计算机内存的最小存储单元是字节（byte），一个字节就是一个8位二进制数，即8个bit。它的二进制表示范围从00000000~11111111，换算成十进制是0~255，换算成十六进制是00~ff。
+	一个字节是1byte，1024字节是1K，1024K是1M，1024M是1G，1024G是1T
+
+	不同的数据类型占用的字节数不一样，Java基本数据类型占用的字节数：
+
+		   ┌───┐
+	  byte │   │
+		   └───┘
+		   ┌───┬───┐
+	 short │   │   │
+		   └───┴───┘
+		   ┌───┬───┬───┬───┐
+	   int │   │   │   │   │
+		   └───┴───┴───┴───┘
+		   ┌───┬───┬───┬───┬───┬───┬───┬───┐
+	  long │   │   │   │   │   │   │   │   │
+		   └───┴───┴───┴───┴───┴───┴───┴───┘
+		   ┌───┬───┬───┬───┐
+	 float │   │   │   │   │
+		   └───┴───┴───┴───┘
+		   ┌───┬───┬───┬───┬───┬───┬───┬───┐
+	double │   │   │   │   │   │   │   │   │
+		   └───┴───┴───┴───┴───┴───┴───┴───┘
+		   ┌───┬───┐
+	  char │   │   │
+		   └───┴───┘
+	
+	byte恰好就是一个字节，而long和double需要8个字节。
+	
+5、整形	
+	各种整型能表示的最大范围如下：
+	byte：-128 ~ 127
+	short: -32768 ~ 32767
+	int: -2147483648 ~ 2147483647
+	long: -9223372036854775808 ~ 9223372036854775807
+	
+6、常量
+
+	定义变量的时候，如果加上final修饰符，这个变量就变成了常量：
+	常量在定义时进行初始化后就不可再次赋值，再次赋值会导致编译错误。
+	final double PI = 3.14; // PI是一个常量
+	根据习惯，常量名通常全部大写。
+	
+7、变量作用范围
+
+	语句块中定义的变量，它有一个作用域，就是从定义处开始，到语句块结束。语句块就是｛｛｝｝
+	定义变量时，要遵循作用域最小化原则，尽量将变量定义在尽可能小的作用域，并且，不要重复使用变量名。
+	
+8、整数运算
+
+	Java的整数运算遵循四则运算规则，可以使用任意嵌套的小括号。
+	整数的数值表示不但是精确的，而且整数运算永远是精确的，即使是除法也是精确的，因为两个整数相除只能得到结果的整数部分：
+	int x = 12345 / 67; // 184
+	求余运算使用%：
+	int y = 12345 % 67; // 12345÷67的余数是17
+	特别注意：整数的除法对于除数为0时运行时将报错，但编译不会报错。
+	
+9、字符串连接
+	+
+	如果用+连接字符串和其他数据类型，会将其他数据类型先自动转型为字符串，再连接
+	
+10、数组
+
+	int[] ns = new int[] { 68, 79, 91, 85, 62 };
+	int[] ns = { 68, 79, 91, 85, 62 };
+	int[] ns = new int[5];
+	
+11、break和continue
+	
+	break语句总是跳出自己所在的那一层循环
+	两个for循环嵌套。如果break语句位于内层的for循环，它会跳出内层for循环，但不会跳出外层for循环。
+	continue则是提前结束本次循环，直接继续执行下次循环。
+
+12、多维数组
+	int[][] ns = {
+		{ 1, 2, 3, 4 },
+		{ 5, 6 },
+		{ 7, 8, 9 }
+	};
+	
+13、方法重载
+	功能类似，只有参数有所不同，可以把这一组方法名做成同名方法
+	class Hello {
+		public void hello() {
+			System.out.println("Hello, world!");
+		}
+
+		public void hello(String name) {
+			System.out.println("Hello, " + name + "!");
+		}
+
+		public void hello(String name, int age) {
+			if (age < 18) {
+				System.out.println("Hi, " + name + "!");
+			} else {
+				System.out.println("Hello, " + name + "!");
+			}
+		}
+	}
+	这种方法名相同，但各自的参数不同，称为方法重载（Overload）。
+	
+14、在继承关系中，子类如果定义了一个与父类方法签名完全相同的方法，被称为覆写（Override）。参数和返回值必须相同
+
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
